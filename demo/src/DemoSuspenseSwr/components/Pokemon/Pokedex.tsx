@@ -1,5 +1,8 @@
+import { Suspense } from "react"
 import useSWR from "swr"
 import Pokemon from './Pokemon'
+import { StyledGrid } from './Pokemon.styled'
+import LoadingSkeleton from "./LoadingSkeleton"
 
 const Pokedex = () => {
 
@@ -8,7 +11,9 @@ const Pokedex = () => {
   return (
     <>
       {data.results.map((pokemon: {name: string}, index: number) => (
-        <Pokemon key={index} pokemonName={pokemon.name} />
+        <Suspense key={index} fallback={<StyledGrid><LoadingSkeleton /></StyledGrid>}>
+          <Pokemon key={pokemon.name} pokemonName={pokemon.name} />
+        </Suspense>
       ))}
     </>
   )

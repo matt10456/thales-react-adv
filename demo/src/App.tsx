@@ -24,6 +24,7 @@ import DemoContext from './DemoContext/components/App'
 import DemoUseRef from './DemoUseRef'
 import DemoUseReducer from './DemoUseReducer'
 import DemoSuspenseSwr from './DemoSuspenseSwr/components/App'
+import DemoLazyLoading from './DemoLazyLoading'
 
 function Toto() {
   return (<p>Je suis Toto</p>)
@@ -32,7 +33,7 @@ function Toto() {
 function App() {
   return (
     <div className="App">
-      <DemoSuspenseSwr />
+      <DemoLazyLoading />
     </div>
   );
 }

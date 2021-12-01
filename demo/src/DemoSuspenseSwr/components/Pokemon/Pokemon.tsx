@@ -1,6 +1,9 @@
 import { FC } from 'react'
 import useSWR from 'swr'
 
+// Styles
+import { StyledCard, StyledTypes, StyledType, StyledHeader} from './Pokemon.styled'
+
 type Props = {
   pokemonName: string
 }
@@ -21,17 +24,20 @@ const Pokemon: FC<Props> = ({ pokemonName }) => {
   const pokemonTypes = types.map((pokemonType: any) => pokemonType.type.name)
 
   return (
-    <>
-      <div>
+    <StyledCard pokemonType={pokemonTypes[0]}>
+      <StyledHeader>
         <h2>{name}</h2>
         <div>#{id}</div>
-      </div>
+      </StyledHeader>
 
       <img alt={name} src={sprites.front_default} />
 
-      {pokemonTypes.map((pokemonType: string) => <p>{pokemonType}</p>)}
-    </>
-
+      <StyledTypes>
+        {pokemonTypes.map((pokemonType: string) => 
+          <StyledType key={pokemonType}>{pokemonType}</StyledType>)}
+      </StyledTypes>
+      
+    </StyledCard>
   )
 
 }
