@@ -17,7 +17,7 @@ interface Props {
 const List: FC<Props> = ({ todoList, handleDelete }) => {
 
   useEffect(() => {
-    console.log('Rendering <List />')
+    //console.log('Rendering <List />')
   })
 
   return (

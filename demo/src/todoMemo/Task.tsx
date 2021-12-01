@@ -12,7 +12,7 @@ interface Props {
 const Task: FC<Props> = ({ id, task, handleDelete }) => {
 
   useEffect(() => {
-    console.log('Rendering <Task />', task)
+    //console.log('Rendering <Task />', task)
   })
 
   return (<li>{task} <button onClick={() => handleDelete(id)}>X</button></li>)

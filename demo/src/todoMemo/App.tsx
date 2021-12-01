@@ -35,13 +35,18 @@ function App() {
     setTerm(task)
   }
 
-  const handleDelete = (todoId: number) => {
-    //console.log('delete', todoId)
+  // const handleDelete = (todoId: number) => {
+  //   //console.log('delete', todoId)
+  //   const newTodoList = todoList.filter((todo: Todo) => todo.id !== todoId)
+  //   setTodoList(newTodoList)
+  // }
+
+  const handleDelete = useCallback((todoId: number) => {
     const newTodoList = todoList.filter((todo: Todo) => todo.id !== todoId)
     setTodoList(newTodoList)
-  }
+  }, [todoList])
 
-  // Memoization du filtrage => gain en perfs
+  // Memoization du filtrage  => gain en perfs. "useMemo returns a memoized value"
   const filterTodoList = useMemo(() => todoList.filter((todo: Todo) => {
     return todo.task.toLowerCase().includes(term.toLocaleLowerCase())
   }), [term, todoList])

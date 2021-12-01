@@ -5,13 +5,10 @@ const Counter = () => {
   const [counter, setCounter] = useState<number>(0)
 
   const handleCounter = (operation = 'add') => {
-
     if (operation === 'add') {
       return setCounter(counter + 1)
     }
-
     setCounter(counter - 1)
-
   }
 
   return (
