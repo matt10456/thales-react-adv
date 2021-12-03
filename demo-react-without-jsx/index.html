@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo React JS sans JSX</title>
+</head>
+<body>
+  <h1>Demo React JS sans JSX</h1>
+  <div id="app"></div>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="counter.js"></script>
+  <script>
+    const e = React.createElement;
+    const app = document.getElementById('app')
+    const item = e('li', {}, 'Elément de liste')
+    const list = e('ul', {className: 'class1 class1 etc'}, item)
+    ReactDOM.render(list, app)
+
+    // https://reactgo.com/react-createelement-example/
+    ReactDOM.render(e(Counter,null,null), document.querySelector('#root'));
+  </script>
+</body>
+</html>
